@@ -1,0 +1,12 @@
+node_modules/
+.expo/
+dist/
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+.DS_Store
+/explanation.md
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

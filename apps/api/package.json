@@ -1,0 +1,24 @@
+{
+  "name": "@qred-case/api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "test": "tsx --test src/*.test.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@qred-case/contract": "0.1.0",
+    "better-sqlite3": "^11.10.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^20.0.0",
+    "@types/express": "^5.0.0",
+    "@types/supertest": "^6.0.0",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.0"
+  }
+}
