@@ -17,18 +17,27 @@ Expo/React Native dashboard and Node.js/Express API based on [`image.png`](image
 
 ## Run locally
 
-Requires Node.js 20 and npm. From the repository root, in separate terminals:
+Requires Node.js 20 and npm. From the repository root, install dependencies:
 
 ```sh
 npm install
+```
+
+Start the API in one terminal (default port **3000**):
+
+```sh
 npm run api
 ```
+
+Start the web app in another terminal:
 
 ```sh
 EXPO_PUBLIC_API_URL=http://localhost:3000 npm run web
 ```
 
-The API creates `apps/api/data/dashboard.sqlite` automatically. The default API port is 3000, but the shell's `PORT` overrides it. **If the API prints a different port, use that port in the web command above.** The browser preview is at `http://localhost:8081`; check `http://localhost:<api-port>/api/v1/companies/company_demo/dashboard` directly to inspect the JSON response.
+Open the web page at **http://localhost:8081**. `EXPO_PUBLIC_API_URL` points to the API, not to the web page. The API creates `apps/api/data/dashboard.sqlite` automatically; check `http://localhost:3000/api/v1/companies/company_demo/dashboard` to inspect its response.
+
+If you want the API on **8082** instead, run `PORT=8082 npm run api` and `EXPO_PUBLIC_API_URL=http://localhost:8082 npm run web` in separate terminals. The web page still opens on **8081**. Always use the port printed by the API in `EXPO_PUBLIC_API_URL`.
 
 The JSON fixture is a seed, not a live mock: editing it does **not** overwrite an already-seeded company. To start a fresh demo, stop the API, remove only `apps/api/data/dashboard.sqlite`, then restart. Alternatively set `DATABASE_PATH` to an absolute path for a different database. `apps/api/schema.sql` is the single current table definition; no legacy contract or migration files are needed for a fresh database. An older local `apps/api/data/qred.sqlite`, if present, is ignored by the running server. Database files are ignored by Git.
 
